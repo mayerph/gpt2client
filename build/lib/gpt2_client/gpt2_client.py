@@ -207,7 +207,7 @@ class GPT2Client(object):
                             if return_text:
                                 return text_array
 
-    def generate_batch_from_prompts(self, batch):
+    def generate_batch_from_prompts(self, batch, words=None):
         """ Returns an array of generated text
 
         Parameters
@@ -244,7 +244,7 @@ class GPT2Client(object):
 
             output = sample_sequence(
                 hparams=hparams,
-                length=length,
+                length=words,
                 start_token=enc.encoder['<|endoftext|>'],
                 batch_size=batch_size,
                 temperature=temperature,
